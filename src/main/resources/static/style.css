@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+.allFlights{
+
+}
+
+.oneFlight{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-style:solid;
+	border-color:black;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.heading{
+	text-align: center;
+	background-color : teal;
+	color : white;
+}
+
+button{
+	background-color : teal;
+	padding : 7px;
+	margin : 5px;
+	
+	
+}
+
+button:hover {
+  background: rgba(3,107,141, 0.5);
+}
+
+
+.insideMainDiv{
+	width: 500px;
+	border-style:solid;
+	border-color:black;
+	margin-bottom: 10px;
+
+	
+}
+
+.mainDiv{
+	margin-top : 20px;
+	display : flex;
+	justify-content : center;
+
+}
+
+.flightForm{
+	display: flex;
+	justify-content: space-around;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 50px;
+
+}
+
+.buttonsDiv{
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.topDownForm{
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.submitButton{
+	margin-top : 10px;
+	margin-left : 200px;
+	margin-right : 200px;
+	background-color : teal;
+	color : white;
+	padding : 7px;
+}
+
+.submitButton:hover {
+  background: rgba(3,107,141, 0.5);
+}
+
+.homePageSubmitButton{
+	background-color : teal;
+	color : white;
+}
+
+.homePageSubmitButton:hover {
+  background: rgba(3,107,141, 0.5);
+}
+
+.directions{
+	margin-bottom : 10px;
+}
+
+.topDownInformation{
+	display : flex;
+	flex-direction : column;
+	align-items : flex-start;
+	padding-left : 10px;
+}
+
+.details{
+	display: flex;
+	justify-content: space-around;
+	padding-top: 10px;
+}
+
+.picture{
+	border-style:solid;
+	border-color:black;
+	padding-left: 100;
+}
+
+.notification {
+  background-color: teal;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: rgba(3,107,141, 0.5);
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+

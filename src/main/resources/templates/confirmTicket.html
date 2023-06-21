@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flight Booking System</title>
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f8f8f8;
+		margin: 0;
+		padding: 0;
+	}
+
+	.heading {
+		font-size: 42px;
+		color: #6b7a8f; 
+		margin-bottom: 40px;
+		text-align: center;
+		text-shadow: 2px 2px 4px #000000;
+	}
+
+	.mainDiv {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #F75D59; 
+	}
+
+	.insideMainDiv {
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 16px;
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+		padding: 40px;
+		text-align: center;
+		animation: slideIn 0.5s ease-in-out;
+	}
+
+	@keyframes slideIn {
+		0% {
+			transform: translateY(20px);
+			opacity: 0;
+		}
+
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	.topDownInformation {
+		margin-top: 40px;
+	}
+
+	.topDownInformation h4 {
+		font-size: 22px;
+		margin: 15px 0;
+		color: #6b7a8f; 
+	}
+
+	.buttonsDiv {
+		margin-top: 40px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.buttonsDiv button {
+		background: linear-gradient(to right, #2193b0, #6dd5ed);
+		color: #fff;
+		border: none;
+		border-radius: 8px;
+		padding: 20px 40px;
+		margin: 15px;
+		font-size: 18px;
+		cursor: pointer;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+		transition: all 0.4s ease;
+	}
+
+	.buttonsDiv button:hover {
+		background: linear-gradient(to right, #6dd5ed, #2193b0);
+		transform: translateY(-5px);
+	}
+
+	.buttonsDiv a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.custom-svg {
+		width: 250px;
+		height: 250px;
+		margin: 0 auto;
+		animation: rotateIn 0.5s ease-in-out;
+	}
+
+	@keyframes rotateIn {
+		0% {
+			transform: rotate(0deg);
+			opacity: 0;
+		}
+
+		100% {
+			transform: rotate(360deg);
+			opacity: 1;
+		}
+	}
+</style>
+
+
+</head>
+
+<body>
+<div class="mainDiv">
+	<div class="insideMainDiv">
+		<h1 class="heading">Do you want to continue?</h1>
+		<div class="topDownInformation" th:object="${ticket}">
+			<h4 th:text="*{'From: ' + flight.source}"></h4>
+			<h4 th:text="*{'To: ' + flight.destination}"></h4>
+			<h4 th:text="*{'Fare: $' + flight.fare}"></h4>
+			<h4 th:text="*{'Passenger Name: ' + passenger.name}"></h4>
+			<h4 th:text="*{'Departure Time: ' + flight.departureTime}"></h4>
+		</div>
+		<div class="buttonsDiv">
+			<button style="margin: 5px;"><a th:href="*{'deleteTicket?id=' + ticket.id}">Delete</a></button>
+			<button style="margin: 5px;"><a th:href="home">Save</a></button>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

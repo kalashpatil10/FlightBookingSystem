@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #e2e8f0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .profile-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 90px 300px;
+    width: 100%;
+    
+  }
+
+  .profile-image {
+    margin: 10px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .profile-info {
+  margin-top: 20px;
+  margin-bottom: -20px; /* Add negative margin to fix gap */
+  text-align: center;
+}
+
+
+  .profile-info h4 {
+    margin-bottom: 5px;
+  }
+
+  .profile-details {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+
+  .profile-details .detail-box {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .profile-details .detail-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .profile-details .row {
+    margin-bottom: 10px;
+  }
+
+  .profile-details h6 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .profile-details .text-secondary {
+    color: #6c757d;
+    font-size: 14px;
+  }
+
+  .buttonsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttonsDiv button {
+    margin: 55px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    margin-bottom: -15px;
+}
+  .buttonsDiv button:hover {
+    opacity: 0.8;
+  }
+
+  .buttonsDiv button a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .logout-button {
+    background-color: #007bff;
+  }
+
+  .home-button {
+    background-color: #28a745;
+  }
+
+  .tickets-button {
+    background-color: #dc3545;
+  }
+
+  .edit-button {
+    background-color: #ffc107;
+  }
+
+  .delete-button {
+    background-color: #17a2b8;
+  }
+
+  .notification-button {
+    background-color: #6c757d;
+    position: relative;
+  }
+
+  .notification-button .notification {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .notification-button .notification span:first-child {
+    margin-right: 10px;
+  }
+
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #dc3545;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+</style>
+
+</head>
+
+<body>
+ <div class="profile-card">
+    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Profile Picture" class="profile-image">
+    <div class="profile-info" th:object="${session.passenger}">
+      <h4 th:text="${session.passenger.userName}"></h4>
+    
+    <div class="profile-details">
+      <div class="detail-box">
+        <div class="row">
+          <div class="col-sm-4">
+            <h6 class="mb-0">Full Name</h6>
+          </div>
+          <div th:text="*{name}">
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="row">
+          <div class="col-sm-4">
+            <h6 class="mb-0">Email</h6>
+          </div>
+          <div th:text="*{email}">
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="row">
+          <div class="col-sm-4">
+            <h6 class="mb-0">Phone</h6>
+          </div>
+          <div th:text="*{phoneNumber}">
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="row">
+          <div class="col-sm-4">
+            <h6 class="mb-0">Passport No</h6>
+          </div>
+          <div th:text="*{passportNumber}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+    <div class="buttonsDiv">
+      <button class="logout-button"><a href="logout">LogOut</a></button>
+      <button class="home-button"><a href="home">Home</a></button>
+      <button class="tickets-button"><a href="viewAllTickets">View Tickets</a></button>
+      <button class="edit-button"><a th:href="*{'editPassenger?id=' + session.passenger.id}">Edit Details</a></button>
+      <button class="delete-button"><a href="deleteAccountConfirmationPage">Delete Account</a></button>
+      <button class="notification-button">
+        <a href="viewNotifications" class="notification">
+          <span>New Notifications</span>
+          <span class="notification-badge" th:text="${unreadNotifications}"></span>
+        </a>
+      </button>
+    </div>
+  </body>
+  </html>

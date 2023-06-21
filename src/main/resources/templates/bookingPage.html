@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Define custom CSS styles */
+
+        /* Main container */
+        .mainDiv {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Inner container */
+        .insideMainDiv {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Heading */
+        .heading {
+            color: #ff6600;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* Form container */
+        .topDownForm {
+            margin-bottom: 20px;
+        }
+
+        /* Directions */
+        .directions {
+            color: #666666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Inputs */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        /* Submit button */
+        .submitButton {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .submitButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* Buttons container */
+        .buttonsDiv {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Links within buttons */
+        .buttonsDiv a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Custom SVG */
+        .customSVG {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mainDiv">
+    <div class="insideMainDiv">
+        <h1 class="heading">Edit your details</h1>
+        <form class="topDownForm" method="post" action="editToUpdatePassenger" th:object="${passenger}">
+            <h4 class="directions">Please enter your changed details as per the label</h4>
+            <input th:field="*{id}" hidden>
+            <label for="name">Name</label>
+            <input required th:field="*{name}" />
+            <label for="email">Email</label>
+            <input required th:field="*{email}" />
+            <label required for="phoneNumber">Phone Number</label>
+            <input th:field="*{phoneNumber}" />
+            <label required for="passportNumber">Passport Number</label>
+            <input th:field="*{passportNumber}" />
+            <label for="userName">Username</label>
+            <input required th:field="*{userName}" />
+            <label for="password">Password</label>
+            <input required type="password" th:field="*{password}" />
+            <input class="submitButton" type="submit">
+        </form>
+        <div class="buttonsDiv">
+            <button><a th:href="home">Go Home</a></button>
+        </div>
+    </div>
+</div>
+
+<!-- Custom SVG -->
+<svg class="customSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path fill="#007bff"
+          d="M512 256c0 141.385-114.615 256-256 256S0 397.385 0 256 114.615 0 256 0s256 114.615 256 256zm0 0" />
+    <path fill="#0056b3"
+          d="M509.867 256c0 141.156-114.71 255.867-255.867 255.867S0 397.156 0 256C0 114.71 114.71 0 255.867 0S509.867 114.71 509.867 256zm0 0" />
+    <path fill="#f2f2f2"
+          d="M384 250.621c-20.694 0-37.534-16.84-37.534-37.535s16.84-37.535 37.534-37.535 37.535 16.84 37.535 37.535-16.841 37.535-37.535 37.535zm0-55.069c-8.694 0-17.067 3.372-23.303 9.61-6.237 6.237-9.61 14.609-9.61 23.303 0 8.693 3.372 17.066 9.61 23.303 6.236 6.236 14.61 9.609 23.303 9.609 8.694 0 17.067-3.373 23.303-9.61 6.237-6.237 9.61-14.61 9.61-23.303 0-8.694-3.373-17.067-9.61-23.303-6.236-6.237-14.61-9.61-23.303-9.61zm0 0M278.489 37.535h-44.35c-20.694 0-37.535 16.84-37.535 37.535v69.718c0 8.698 3.374 17.07 9.61 23.306 6.237 6.235 14.61 9.61 23.304 9.61h24.892l-11.116 43.895c-2.47 9.775 1.924 20.074 10.468 25.972 4.125 2.652 9.071 4.039 13.972 4.039 6.623 0 13.142-2.812 17.617-7.768l49.828-49.83v75.723c0 20.695 16.841 37.535 37.535 37.535h44.35c20.694 0 37.535-16.84 37.535-37.535V75.07c0-20.695-16.84-37.535-37.535-37.535zm0 0" />
+</svg>
+</body>
+
+</html>

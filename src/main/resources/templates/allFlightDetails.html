@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Available Flights</title>
+<style>
+
+		.card {
+			display: flex;
+		    flex-wrap: wrap;
+			justify-content: space-evenly;
+		}
+		
+		
+		.card-header {
+		  pointer-events: none;
+		}
+		
+		.card-header:hover {
+		  pointer-events: auto;
+		}
+		.card:hover {
+		  opacity: 1;
+		  transform: scale(1.05);
+		  transition: all0.3s ease-in-out;
+		}
+		
+		button {
+		  background-color: #007bff;
+		  color: #fff;
+		  border: none;
+		  padding: 10px 20px;
+		  border-radius: 5px;
+		  font-size: 16px;
+		  cursor: pointer;
+		}
+		
+		button:hover {
+		  background-color: #0056b3;
+		}
+		
+		
+		  body {
+		 
+		  font-family: "Poppins", sans-serif;
+		  font-size: 14px;
+		  line-height: 22px;
+		}
+		
+		form {
+		  padding: 0;
+		  margin: 0;
+		  display: inline;
+		}
+		
+		h1,h5 {
+		  color: #0c2f54;
+		  font-family: "Poppins", sans-serif;
+		  text-align: center;
+		}
+		
+		.card {
+		  opacity: 0.7;
+		}
+		
+		.container-fluid {
+		      min-height: 100vh; 
+		}
+		
+		.bg-image {
+		   background-image: url('image.jpg');
+		   background-size: cover; /* Add this line to ensure the image covers the container */
+		   height: 100%; /* Set height to 100% of the container */
+		}
+		
+		a.card-header {
+		  text-decoration: none;
+		}
+		
+		a.card-header:hover {
+		  text-decoration: none;
+		}
+
+</style>
+
+<!-- Web Fonts-->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900' type='text/css'>
+
+<!-- Stylesheet-->
+<link href="bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Container -->
+<div class="container-fluid itinerary-container">  
+  <!-- Main Content -->
+  <div class="bg-image">
+  
+   <h1>Available Flights</h1>
+    <div class="card" th:each="flight : ${flights}" th:object="${flight}">
+      
+      <div class="card-header">
+        <div class="row align-items-center trip-title">
+          <div class="col-5 col-md-auto text-center text-md-left">
+            <h5 th:text="*{source}"></h5>
+          </div>
+          <div class="col-2 col-md-auto text-8 text-black-50 text-center trip-arrow">➝</div>
+          <div class="col-5 col-md-auto text-center text-md-left">
+            <h5 th:text="*{destination}"></h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-2 col-sm-2 text-center time-info mt-3 mt-sm-0"><span th:text="*{departureTime}"></span><span class="text-muted d-block">Departure</span></div>
+          <div class="col-2 col-sm-2 text-center time-info mt-3 mt-sm-0"><span th:text="*{arrivalInDestinationTime}"></span><span class="text-muted d-block">Arrival</span></div>
+          <div class="col-2 col-sm-2 text-center price-info mt-3 mt-sm-0"><span th:text="*{'$'+fare}"></span><span class="text-muted d-block">Price</span></div>
+          <div class="col-2 col-sm-2 text-center price-info mt-3 mt-sm-0"><span th:text="*{plane.model}"></span><span class="text-muted d-block">Flight Number</span></div>
+          <a th:href="*{'chooseSeat?id=' + id}">
+          <div class="col-2 col-sm-2 text-center book-now mt-3 mt-sm-0"><button>Book Now</button></div>
+        </div>
+      </div>
+       </a>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>

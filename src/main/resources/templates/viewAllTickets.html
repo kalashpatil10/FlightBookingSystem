@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+		
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Booking System</title>
+
+<style>
+	/* Custom CSS styles */
+	body {
+	font-family: Arial, sans-serif;
+	background-image: url('Viewticket.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	}
+	
+	.heading {
+	font-size: 32px;
+	color: #4caf50;
+	text-align: center;
+	margin: 20px 0;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	.allFlights {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	}
+	
+	.oneFlight {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	text-align: center;
+	width: 300px;
+	margin: 10px;
+	transition: transform 0.3s, box-shadow 0.3s;
+	}
+	
+	.oneFlight:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	
+	h2 {
+	font-size: 20px;
+	color: #3f51b5;
+	margin-bottom: 10px;
+	}
+	
+	.buttonsDiv {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	}
+	
+	.buttonsDiv button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	margin: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s, box-shadow 0.3s;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	.buttonsDiv button:hover {
+	background-color: #0056b3;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	}
+	
+	.buttonsDiv a {
+	color: #fff;
+	text-decoration: none;
+	}
+	
+	.viewButton {
+	background-color: #ff4081;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	margin-top: 15px;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s, box-shadow 0.3s;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	.viewButton a {
+	text-decoration: none; 
+	}
+	
+	.viewButton:hover {
+	background-color: #d81b60;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	}
+	
+	.oneFlight:nth-child(odd) {
+	background-color: #ffcc80;
+	}
+	
+	.oneFlight:nth-child(even) {
+	background-color: #80deea;
+	}
+	
+	@keyframes pulse {
+	0% {
+	box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+	}
+	70% {
+	box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+	}
+	100% {
+	box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+	}
+	}
+	
+	.heading {
+	animation: pulse 2s infinite;
+	}
+	
+	@media (max-width: 768px) {
+	  .allFlights {
+	    flex-direction: column;
+	  }
+	
+	  .oneFlight {
+	    width: 80%;
+	    margin: 10px auto;
+	  }
+	
+	  .buttonsDiv {
+	    flex-direction: column;
+	  }
+	
+	  .buttonsDiv button {
+	    width: 80%;
+	    margin: 5px auto;
+	  }
+	}
+	
+	</style>
+	</head>
+	
+	<body>
+		<h1 class="heading">All Tickets</h1>
+		
+		<div class="allFlights" th:each="ticket : ${tickets}" th:object="${ticket}">
+		<div class="oneFlight">
+		<h2 th:text="*{flight.source}"></h2>
+		<h2 th:text="*{flight.destination}"></h2>
+		<h2 th:text="*{'$' + flight.fare}"></h2>
+		<h2 th:text="*{'Departure: ' + flight.departureTime}"></h2>
+		<button class="viewButton"><a th:href="*{'viewTicket?id=' + id}">View</a></button>
+	</div>
+	</div>
+	
+	<div class="buttonsDiv">
+		<button><a href="home">Book More Tickets</a></button>
+		<button><a href="passengerProfile">Go Back</a></button>
+	</div>
+</body>
+</html>

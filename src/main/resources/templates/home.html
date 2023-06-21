@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		/* Define custom CSS styles */
+
+		/* Body styles */
+		body {
+			background-image: url("homebg.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Main container */
+		.mainDiv {
+			background-color: rgba(255, 255, 255, 0.9);
+			padding: 20px;
+			border-radius: 10px;
+			margin: 50px auto;
+			max-width: 400px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			opacity: 0.8;
+		}
+
+		/* Inner container */
+		.insideMainDiv {
+			text-align: center;
+		}
+
+		/* Heading */
+		.heading {
+			color: #ff6600;
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
+
+		/* Error message */
+		.error {
+			background-color: red;
+			color: white;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+
+		/* Flight form */
+		.flightForm {
+			margin-bottom: 20px;
+		}
+
+		/* Labels */
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		/* Select dropdowns */
+		select {
+			width: 100%;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-bottom: 10px;
+		}
+		/* Header */
+			.header {
+  			display: flex;
+  			align-items: center;
+ 			justify-content: center;
+  			flex-direction: column;
+ 
+		}
+
+			.header img {
+  			height: 75px;
+  			margin-right: 10px;
+  			object-fit:contain;
+			mix-blend-mode: soft-light;
+
+		}
+
+			.header h1 {
+  			margin: 0;
+		}
+
+		/* Footer */
+			.footer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 30px;
+		}
+
+			.footer a {
+			margin: 0 10px;
+		}
+
+			.footer img {
+			height: 30px;
+			aspect-ratio:3/4;
+			object-fit:contain;
+			mix-blend-mode: color-burn;
+			}
+
+		/* Submit button */
+		.homePageSubmitButton {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		.homePageSubmitButton:hover {
+			background-color: #45a049;
+		}
+
+		/* Button container */
+		.buttonsDiv {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+
+		/* Links within buttons */
+		.buttonsDiv a {
+			color: white;
+			text-decoration: none;
+		}
+
+		/* Buttons */
+		button {
+			background-color: #007bff;
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 5px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		button:hover {
+			background-color: #0056b3;
+		}
+	</style>
+</head>
+
+<body>
+<div class="header">
+<img src="antharikshaw-logo.png" alt="Flight Logo">
+<h1>Antharikshaw</h1>
+</div>
+<div class="mainDiv">
+	<div class="insideMainDiv">
+		<h1 class="heading">Flight Booking System</h1>
+
+		<h1 class="error" th:if="'isEqual' == ${isEqual}">Please select different places</h1>
+
+		<form class="flightForm" action="flightDetails">
+			<label for="source-place">From</label>
+			<select name="source-place" id="source-place">
+				<option value="Sydney">Sydney</option>
+				<option value="Melbourne">Melbourne</option>
+				<option value="Adelaide">Adelaide</option>
+				<option value="Perth">Perth</option>
+			</select>
+
+			<label for="destination-place">To</label>
+			<select name="destination-place" id="destination-place">
+				<option value="Sydney">Sydney</option>
+				<option value="Melbourne">Melbourne</option>
+				<option value="Adelaide">Adelaide</option>
+				<option value="Perth" selected>Perth</option>
+			</select>
+			<input class="homePageSubmitButton" type="submit" value="Submit" />
+		</form>
+		<div class="buttonsDiv">
+			<button><a href="login">Login</a></button>
+			<button><a href="passengerProfile">Your Profile</a></button>
+		</div>
+	</div>
+</div>
+<div class="footer">
+<div class="copy">&copy; 2023 Developer</div>
+<a href="#"><img src="fb.jpg" alt="Facebook"></a>
+<a href="#"><img src="insta.jpg" alt="Instagram"></a>
+<a href="#"><img src="twitter.jpg" alt="Twitter"></a>
+</div>
+</body>
+
+
+</html>
